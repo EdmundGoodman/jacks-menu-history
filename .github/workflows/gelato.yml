@@ -5,16 +5,15 @@ on:
   schedule:
     - cron: 20 10 * * *
 
-permissions:
-  contents: write
-
 jobs:
   get-menu:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v4
-        with:
-            token: ${{ secrets.PAT }}
       - uses: astral-sh/setup-uv@v3
       - name: Set up Python 3.10
         run: uv python install 3.10
@@ -33,3 +32,4 @@ jobs:
       - name: Run the tool to fail the pipeline if something broke
         run: |
           jacks-menu --fail-on-error --verbose
+
