@@ -28,6 +28,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Add new Jack's Gelato menu"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Run the tool to fail the pipeline if something broke
         run: |
